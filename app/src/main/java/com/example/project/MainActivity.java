@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         nextActivity = findViewById(R.id.button2);
-        save = findViewById(R.id.button);
+
         text = findViewById(R.id.textView);
-        editText = findViewById(R.id.editText);
-        myPreferenceRef = getPreferences(MODE_PRIVATE);
+
+        myPreferenceRef = getSharedPreferences("SharedPreference", MODE_PRIVATE);
         myPreferenceEditor = myPreferenceRef.edit();
+
         String read = myPreferenceRef.getString("Reference","Saknar Data");
         text.setText(read);
 
@@ -43,16 +44,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            text.setText(editText.getText());
-            textToNext = editText.getText().toString();
-            myPreferenceEditor.putString("Reference", text.getText().toString());
-            myPreferenceEditor.apply();
 
-            }
-        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String read = myPreferenceRef.getString("Reference","Saknar Data");
+        text.setText(read);
     }
 
     void toSecondActivity(){
