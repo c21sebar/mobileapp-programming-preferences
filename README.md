@@ -1,7 +1,6 @@
 
 # Rapport
 
-**Skriv din rapport här!**
 Skapade knapp till main activity.
 Knappen startar second activity.
 ```Java
@@ -66,4 +65,4 @@ I mainActivity, finns onResume, som läser igen från sharedPreferences och visa
 ![](nyText-Save.png)
 ![](secondActivity.png)
 ![](main-ny-text.png)
-Läs gärna:
+
